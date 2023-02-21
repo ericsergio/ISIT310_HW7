@@ -27,8 +27,8 @@
           <ScalarProperty Name="PartID" ColumnName="PartID" />
           <ScalarProperty Name="PartName" ColumnName="PartName" />
           <ScalarProperty Name="Price" ColumnName="Price" />
-          <ScalarProperty Name="SupplierID" ColumnName="SupplierSupplierID" />
-          <ScalarProperty Name="OrderID" ColumnName="OrderOrderID" />
+          <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

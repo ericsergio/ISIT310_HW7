@@ -38,8 +38,8 @@
     <Property Name="PartID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="PartName" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Price" Type="decimal" Nullable="false" />
-    <Property Name="SupplierSupplierID" Type="int" Nullable="false" />
-    <Property Name="OrderOrderID" Type="int" Nullable="false" />
+    <Property Name="SupplierID" Type="int" Nullable="false" />
+    <Property Name="OrderID" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="SupplierPart">
     <End Role="Supplier" Type="OrderModel.Store.Suppliers" Multiplicity="1" />
@@ -49,7 +49,7 @@
         <PropertyRef Name="SupplierID" />
       </Principal>
       <Dependent Role="Part">
-        <PropertyRef Name="SupplierSupplierID" />
+        <PropertyRef Name="SupplierID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -61,7 +61,7 @@
         <PropertyRef Name="OrderID" />
       </Principal>
       <Dependent Role="Part">
-        <PropertyRef Name="OrderOrderID" />
+        <PropertyRef Name="OrderID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

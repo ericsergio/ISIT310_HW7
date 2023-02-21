@@ -60,15 +60,16 @@ namespace Homework7
                                  {
                                      id = eachPart.PartID,
                                      name = eachPart.PartName,
-                                     price = eachPart.Price,
-                                     supp_id = eachPart.SupplierID,
-                                     order_id = eachPart.OrderID
-                                 };
-            supplierCmb.DataSource = suppComboQuery.ToList();
+                                     //price = eachPart.Price,
+                                     //supp_id = eachPart.SupplierID,
+                                     //order_id = eachPart.OrderID
+                                 };            
             partCmb.DataSource = partComboQuery.ToList();
 
 
             //quantityInp
+
+
 
             //idInp
 
