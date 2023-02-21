@@ -1,19 +1,16 @@
-﻿using System;
+﻿using Microsoft.SqlServer.Server;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
+using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
 
 namespace Homework7
 {
     public partial class Form1 : Form
     {
-        OrderModelContainer1 orderData = new OrderModelContainer1();
+        OrderModelContainer1 context = new OrderModelContainer1();
         public Form1()
         {
             InitializeComponent();
@@ -23,28 +20,20 @@ namespace Homework7
         {
             //supplierCmb, partCmb, quantityInp, idInp, grid 
             Populate();
-
-            Practice();
-        }
-
-        private void Practice() 
-        {
-            //OrderModelContainer context = new OrderModelContainer();
-            //var selected = (from row in context.Parts 
-             //               where row)
+            
         }
 
 
 
         private void orderBtn_Click(object sender, EventArgs e)
         {
-
+            InsertOrder();
         }
         
         private void Populate()
         {
             //grid
-            var gridQuery = from eachOrder in orderData.Orders
+            var gridQuery = from eachOrder in context.Orders
                         select new
                         {
                             id = eachOrder.OrderID,
@@ -54,26 +43,26 @@ namespace Homework7
                             qty = eachOrder.Quantity
                         };
             grid.DataSource = gridQuery.ToList();
-            /*
-            //supplierCmb
-            var suppComboQuery = from eachSupplier in orderData.Suppliers
-                                 select new
-                                 {
-                                     //id = eachSupplier.SupplierID,
-                                     eachSupplier.CompanyName
-                                     //phone = eachSupplier.PhoneNumber
-                                 };
-            supplierCmb.DataSource = suppComboQuery.ToList();
 
-            //partCmb
-            var partComboQuery = from eachPart in orderData.Parts
+           
+            var suppComboQuery = from eachSupplier in context.Suppliers
                                  select new
                                  {
-                                     //id = eachPart.PartID,
-                                     eachPart.PartName
-                                     //price = eachPart.Price,
-                                     //supp_id = eachPart.SupplierID
-                                     //order_id = eachPart.OrderID
+                                     eachSupplier.SupplierID,
+                                     eachSupplier.CompanyName,
+                                     phone = eachSupplier.PhoneNumber
+                                 };
+            
+            supplierCmb.DataSource= suppComboQuery.ToList();
+            
+            
+            //partCmb
+            var partComboQuery = from eachPart in context.Parts
+                                 select new
+                                 {
+                                     id = eachPart.PartID,
+                                     eachPart.PartName,
+                                     price = eachPart.Price
                                  };            
             partCmb.DataSource = partComboQuery.ToList();
 
@@ -82,13 +71,47 @@ namespace Homework7
 
 
 
-            //idInp*/
+            //idInp
+            var orderId = from eachPart in context.Orders
+                          select eachPart.OrderID;
 
+                               /*{
+                                   id = eachPart.OrderID,
+                                   date = DateTime.Now//eachPart.OrderDate,
+                                   qty = eachPart.Quantity,
+                                   part_id = eachPart.PartID,
+                                   supp_id = eachPart.SupplierID
+                               };*/
+            //idInp.DataSource = orderIdInput;
+
+        }
+
+        private void InsertOrder() 
+        {
+            var sQuery = (from eachOrder in context.Orders
+                          where supplierCmb.Text == eachOrder.Supplier.CompanyName
+                          select eachOrder.SupplierID).First();
+
+            var pQuery = (from eachOrder in context.Orders
+                          where partCmb.Text == eachOrder.Part.PartName
+                          select eachOrder.PartID).First();
+
+
+            var newOrder = new Order { OrderDate= DateTime.Now, Quantity = int.Parse(quantityInp.Text), SupplierID = sQuery, PartID = pQuery };
+            context.Orders.Add(newOrder);
+            context.SaveChanges();
+           
         }
 
         private void txt_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_Click(object sender, EventArgs e)
+        {
+
+            
         }
     }
 }
