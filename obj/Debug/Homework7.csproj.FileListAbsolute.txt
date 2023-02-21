@@ -1,0 +1,16 @@
+Y:\Documents\School\23\Winter\isit310\hw\Homework7\bin\Debug\Homework7.exe.config
+Y:\Documents\School\23\Winter\isit310\hw\Homework7\bin\Debug\Homework7.exe
+Y:\Documents\School\23\Winter\isit310\hw\Homework7\bin\Debug\Homework7.pdb
+Y:\Documents\School\23\Winter\isit310\hw\Homework7\bin\Debug\EntityFramework.dll
+Y:\Documents\School\23\Winter\isit310\hw\Homework7\bin\Debug\EntityFramework.SqlServer.dll
+Y:\Documents\School\23\Winter\isit310\hw\Homework7\bin\Debug\EntityFramework.xml
+Y:\Documents\School\23\Winter\isit310\hw\Homework7\bin\Debug\EntityFramework.SqlServer.xml
+Y:\Documents\School\23\Winter\isit310\hw\Homework7\obj\Debug\Homework7.csproj.AssemblyReference.cache
+Y:\Documents\School\23\Winter\isit310\hw\Homework7\obj\Debug\Homework7.csproj.SuggestedBindingRedirects.cache
+Y:\Documents\School\23\Winter\isit310\hw\Homework7\obj\Debug\Homework7.Form1.resources
+Y:\Documents\School\23\Winter\isit310\hw\Homework7\obj\Debug\Homework7.Properties.Resources.resources
+Y:\Documents\School\23\Winter\isit310\hw\Homework7\obj\Debug\Homework7.csproj.GenerateResource.cache
+Y:\Documents\School\23\Winter\isit310\hw\Homework7\obj\Debug\Homework7.csproj.CoreCompileInputs.cache
+Y:\Documents\School\23\Winter\isit310\hw\Homework7\obj\Debug\Homework7.csproj.CopyComplete
+Y:\Documents\School\23\Winter\isit310\hw\Homework7\obj\Debug\Homework7.exe
+Y:\Documents\School\23\Winter\isit310\hw\Homework7\obj\Debug\Homework7.pdb

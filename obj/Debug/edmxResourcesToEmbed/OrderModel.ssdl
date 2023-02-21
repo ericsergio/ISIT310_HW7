@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OrderModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="OrderModelStoreContainer">
+    <EntitySet Name="Suppliers" EntityType="OrderModel.Store.Suppliers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Orders" EntityType="OrderModel.Store.Orders" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Parts" EntityType="OrderModel.Store.Parts" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="SupplierPart" Association="OrderModel.Store.SupplierPart">
+      <End Role="Supplier" EntitySet="Suppliers" />
+      <End Role="Part" EntitySet="Parts" />
+    </AssociationSet>
+    <AssociationSet Name="OrderPart" Association="OrderModel.Store.OrderPart">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="Part" EntitySet="Parts" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Suppliers">
+    <Key>
+      <PropertyRef Name="SupplierID" />
+    </Key>
+    <Property Name="SupplierID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SupplierID" Type="int" Nullable="false" />
+    <Property Name="OrderDate" Type="datetime" Nullable="false" />
+    <Property Name="PartID" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Parts">
+    <Key>
+      <PropertyRef Name="PartID" />
+    </Key>
+    <Property Name="PartID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PartName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Price" Type="decimal" Nullable="false" />
+    <Property Name="SupplierSupplierID" Type="int" Nullable="false" />
+    <Property Name="OrderOrderID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="SupplierPart">
+    <End Role="Supplier" Type="OrderModel.Store.Suppliers" Multiplicity="1" />
+    <End Role="Part" Type="OrderModel.Store.Parts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="SupplierID" />
+      </Principal>
+      <Dependent Role="Part">
+        <PropertyRef Name="SupplierSupplierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrderPart">
+    <End Role="Order" Type="OrderModel.Store.Orders" Multiplicity="1" />
+    <End Role="Part" Type="OrderModel.Store.Parts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="OrderID" />
+      </Principal>
+      <Dependent Role="Part">
+        <PropertyRef Name="OrderOrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
