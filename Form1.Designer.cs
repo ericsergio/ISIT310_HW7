@@ -38,6 +38,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.grid = new System.Windows.Forms.DataGridView();
+            this.txt = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -133,12 +135,32 @@
             this.grid.Size = new System.Drawing.Size(614, 291);
             this.grid.TabIndex = 9;
             // 
+            // txt
+            // 
+            this.txt.Location = new System.Drawing.Point(329, 68);
+            this.txt.Name = "txt";
+            this.txt.Size = new System.Drawing.Size(214, 20);
+            this.txt.TabIndex = 10;
+            this.txt.TextChanged += new System.EventHandler(this.txt_TextChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(326, 39);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(66, 18);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Practice";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
             this.ClientSize = new System.Drawing.Size(970, 614);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txt);
             this.Controls.Add(this.grid);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -170,6 +192,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView grid;
+        private System.Windows.Forms.TextBox txt;
+        private System.Windows.Forms.Label label5;
     }
 }
 

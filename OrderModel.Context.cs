@@ -13,10 +13,10 @@ namespace Homework7
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class OrderModelContainer : DbContext
+    public partial class OrderModelContainer1 : DbContext
     {
-        public OrderModelContainer()
-            : base("name=OrderModelContainer")
+        public OrderModelContainer1()
+            : base("name=OrderModelContainer1")
         {
         }
     
@@ -26,7 +26,7 @@ namespace Homework7
         }
     
         public virtual DbSet<Supplier> Suppliers { get; set; }
-        public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Part> Parts { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
     }
 }

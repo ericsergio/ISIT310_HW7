@@ -14,19 +14,13 @@ namespace Homework7
     
     public partial class Order
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Order()
-        {
-            this.Parts = new HashSet<Part>();
-        }
-    
         public int OrderID { get; set; }
-        public int SupplierID { get; set; }
         public System.DateTime OrderDate { get; set; }
-        public int PartID { get; set; }
         public int Quantity { get; set; }
+        public int SupplierID { get; set; }
+        public int PartID { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Part> Parts { get; set; }
+        public virtual Supplier Supplier { get; set; }
+        public virtual Part Part { get; set; }
     }
 }

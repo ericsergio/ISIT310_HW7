@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="OrderModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
-  <EntityContainer Name="OrderModelContainer" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="OrderModelContainer1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Suppliers" EntityType="OrderModel.Supplier" />
-    <EntitySet Name="Orders" EntityType="OrderModel.Order" />
     <EntitySet Name="Parts" EntityType="OrderModel.Part" />
-    <AssociationSet Name="SupplierPart" Association="OrderModel.SupplierPart">
-      <End Role="Supplier" EntitySet="Suppliers" />
-      <End Role="Part" EntitySet="Parts" />
-    </AssociationSet>
-    <AssociationSet Name="OrderPart" Association="OrderModel.OrderPart">
+    <EntitySet Name="Orders" EntityType="OrderModel.Order" />
+    <AssociationSet Name="OrderSupplier" Association="OrderModel.OrderSupplier">
       <End Role="Order" EntitySet="Orders" />
+      <End Role="Supplier" EntitySet="Suppliers" />
+    </AssociationSet>
+    <AssociationSet Name="PartOrder" Association="OrderModel.PartOrder">
       <End Role="Part" EntitySet="Parts" />
+      <End Role="Order" EntitySet="Orders" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Supplier">
@@ -18,54 +18,52 @@
       <PropertyRef Name="SupplierID" />
     </Key>
     <Property Name="SupplierID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="CompanyName" Type="String" Nullable="false" />
-    <Property Name="PhoneNumber" Type="String" Nullable="false" />
-    <NavigationProperty Name="Parts" Relationship="OrderModel.SupplierPart" FromRole="Supplier" ToRole="Part" />
-  </EntityType>
-  <EntityType Name="Order">
-    <Key>
-      <PropertyRef Name="OrderID" />
-    </Key>
-    <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="SupplierID" Type="Int32" Nullable="false" />
-    <Property Name="OrderDate" Type="DateTime" Nullable="false" />
-    <Property Name="PartID" Type="Int32" Nullable="false" />
-    <Property Name="Quantity" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Parts" Relationship="OrderModel.OrderPart" FromRole="Order" ToRole="Part" />
+    <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Orders" Relationship="OrderModel.OrderSupplier" FromRole="Supplier" ToRole="Order" />
   </EntityType>
   <EntityType Name="Part">
     <Key>
       <PropertyRef Name="PartID" />
     </Key>
     <Property Name="PartID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="PartName" Type="String" Nullable="false" />
-    <Property Name="Price" Type="Decimal" Nullable="false" />
-    <NavigationProperty Name="Supplier" Relationship="OrderModel.SupplierPart" FromRole="Part" ToRole="Supplier" />
-    <Property Name="SupplierID" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Order" Relationship="OrderModel.OrderPart" FromRole="Part" ToRole="Order" />
-    <Property Name="OrderID" Type="Int32" Nullable="false" />
+    <Property Name="PartName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <NavigationProperty Name="Orders" Relationship="OrderModel.PartOrder" FromRole="Part" ToRole="Order" />
   </EntityType>
-  <Association Name="SupplierPart">
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Supplier" Relationship="OrderModel.OrderSupplier" FromRole="Order" ToRole="Supplier" />
+    <Property Name="SupplierID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Part" Relationship="OrderModel.PartOrder" FromRole="Order" ToRole="Part" />
+    <Property Name="PartID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="OrderSupplier">
+    <End Type="OrderModel.Order" Role="Order" Multiplicity="*" />
     <End Type="OrderModel.Supplier" Role="Supplier" Multiplicity="1" />
-    <End Type="OrderModel.Part" Role="Part" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Supplier">
         <PropertyRef Name="SupplierID" />
       </Principal>
-      <Dependent Role="Part">
+      <Dependent Role="Order">
         <PropertyRef Name="SupplierID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="OrderPart">
-    <End Type="OrderModel.Order" Role="Order" Multiplicity="1" />
-    <End Type="OrderModel.Part" Role="Part" Multiplicity="*" />
+  <Association Name="PartOrder">
+    <End Type="OrderModel.Part" Role="Part" Multiplicity="1" />
+    <End Type="OrderModel.Order" Role="Order" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Order">
-        <PropertyRef Name="OrderID" />
+      <Principal Role="Part">
+        <PropertyRef Name="PartID" />
       </Principal>
-      <Dependent Role="Part">
-        <PropertyRef Name="OrderID" />
+      <Dependent Role="Order">
+        <PropertyRef Name="PartID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

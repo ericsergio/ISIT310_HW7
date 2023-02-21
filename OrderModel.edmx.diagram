@@ -4,12 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="58f7612d9fcf4a34af26f508a060a59a" Name="Diagram1" >
-        <EntityTypeShape EntityType="OrderModel.Supplier" Width="1.5" PointX="7.875" PointY="2.25" />
-        <EntityTypeShape EntityType="OrderModel.Order" Width="1.5" PointX="3" PointY="2.25" />
-        <EntityTypeShape EntityType="OrderModel.Part" Width="1.5" PointX="5.625" PointY="2.25" />
-        <AssociationConnector Association="OrderModel.SupplierPart" />
-        <AssociationConnector Association="OrderModel.OrderPart" />
+      <Diagram DiagramId="8a089ae0077c438c83a337a86bc36334" Name="Diagram1" >
+        <EntityTypeShape EntityType="OrderModel.Supplier" Width="1.5" PointX="7.75" PointY="2.5" />
+        <EntityTypeShape EntityType="OrderModel.Part" Width="1.5" PointX="3" PointY="4.375" />
+        <EntityTypeShape EntityType="OrderModel.Order" Width="1.5" PointX="4.375" PointY="1.375" />
+        <AssociationConnector Association="OrderModel.OrderSupplier" />
+        <AssociationConnector Association="OrderModel.PartOrder" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
