@@ -36,17 +36,17 @@
             this.orderBtn = new System.Windows.Forms.Button();
             this.quantityInp = new System.Windows.Forms.TextBox();
             this.idInp = new System.Windows.Forms.TextBox();
-            this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.grid = new System.Windows.Forms.DataGridView();
-            this.tb = new System.Windows.Forms.TextBox();
-            this.btn = new System.Windows.Forms.Button();
+            this.pBox = new System.Windows.Forms.TextBox();
+            this.sBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,7 +55,7 @@
             this.supplierCmb.DataSource = this.supplierBindingSource;
             this.supplierCmb.DisplayMember = "CompanyName";
             this.supplierCmb.FormattingEnabled = true;
-            this.supplierCmb.Location = new System.Drawing.Point(208, 317);
+            this.supplierCmb.Location = new System.Drawing.Point(1104, 255);
             this.supplierCmb.Margin = new System.Windows.Forms.Padding(6);
             this.supplierCmb.Name = "supplierCmb";
             this.supplierCmb.Size = new System.Drawing.Size(238, 33);
@@ -71,7 +71,7 @@
             this.partCmb.DataSource = this.partBindingSource;
             this.partCmb.DisplayMember = "PartName";
             this.partCmb.FormattingEnabled = true;
-            this.partCmb.Location = new System.Drawing.Point(576, 306);
+            this.partCmb.Location = new System.Drawing.Point(1104, 362);
             this.partCmb.Margin = new System.Windows.Forms.Padding(6);
             this.partCmb.Name = "partCmb";
             this.partCmb.Size = new System.Drawing.Size(238, 33);
@@ -88,7 +88,7 @@
             this.orderBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.orderBtn.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.orderBtn.ForeColor = System.Drawing.Color.White;
-            this.orderBtn.Location = new System.Drawing.Point(1050, 288);
+            this.orderBtn.Location = new System.Drawing.Point(1104, 541);
             this.orderBtn.Margin = new System.Windows.Forms.Padding(6);
             this.orderBtn.Name = "orderBtn";
             this.orderBtn.Size = new System.Drawing.Size(242, 69);
@@ -99,7 +99,7 @@
             // 
             // quantityInp
             // 
-            this.quantityInp.Location = new System.Drawing.Point(902, 308);
+            this.quantityInp.Location = new System.Drawing.Point(1108, 472);
             this.quantityInp.Margin = new System.Windows.Forms.Padding(6);
             this.quantityInp.Name = "quantityInp";
             this.quantityInp.Size = new System.Drawing.Size(94, 31);
@@ -107,22 +107,17 @@
             // 
             // idInp
             // 
-            this.idInp.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBindingSource, "OrderID", true));
-            this.idInp.Location = new System.Drawing.Point(1334, 308);
+            this.idInp.Location = new System.Drawing.Point(1117, 680);
             this.idInp.Margin = new System.Windows.Forms.Padding(6);
             this.idInp.Name = "idInp";
             this.idInp.Size = new System.Drawing.Size(94, 31);
             this.idInp.TabIndex = 4;
             // 
-            // orderBindingSource
-            // 
-            this.orderBindingSource.DataSource = typeof(Homework7.Order);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(198, 265);
+            this.label1.Location = new System.Drawing.Point(1094, 203);
             this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(151, 35);
@@ -133,7 +128,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(570, 265);
+            this.label2.Location = new System.Drawing.Point(1098, 315);
             this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(164, 35);
@@ -144,7 +139,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(896, 265);
+            this.label3.Location = new System.Drawing.Point(1101, 423);
             this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(135, 35);
@@ -155,7 +150,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(1328, 267);
+            this.label4.Location = new System.Drawing.Point(1102, 639);
             this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(127, 35);
@@ -165,38 +160,60 @@
             // grid
             // 
             this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid.Location = new System.Drawing.Point(208, 462);
+            this.grid.Location = new System.Drawing.Point(55, 203);
             this.grid.Margin = new System.Windows.Forms.Padding(6);
             this.grid.Name = "grid";
             this.grid.RowHeadersWidth = 82;
-            this.grid.Size = new System.Drawing.Size(1228, 560);
+            this.grid.Size = new System.Drawing.Size(990, 657);
             this.grid.TabIndex = 9;
             // 
-            // tb
+            // pBox
             // 
-            this.tb.Location = new System.Drawing.Point(989, 59);
-            this.tb.Name = "tb";
-            this.tb.Size = new System.Drawing.Size(100, 31);
-            this.tb.TabIndex = 10;
+            this.pBox.Location = new System.Drawing.Point(323, 75);
+            this.pBox.Name = "pBox";
+            this.pBox.Size = new System.Drawing.Size(215, 31);
+            this.pBox.TabIndex = 10;
             // 
-            // btn
+            // sBox
             // 
-            this.btn.Location = new System.Drawing.Point(846, 43);
-            this.btn.Name = "btn";
-            this.btn.Size = new System.Drawing.Size(75, 23);
-            this.btn.TabIndex = 11;
-            this.btn.Text = "test";
-            this.btn.UseVisualStyleBackColor = true;
-            this.btn.Click += new System.EventHandler(this.btn_Click);
+            this.sBox.Location = new System.Drawing.Point(74, 73);
+            this.sBox.Name = "sBox";
+            this.sBox.Size = new System.Drawing.Size(215, 31);
+            this.sBox.TabIndex = 11;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(68, 22);
+            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(118, 35);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "sQuery";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(317, 24);
+            this.label6.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(119, 35);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "pQuery";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
-            this.ClientSize = new System.Drawing.Size(1940, 1181);
-            this.Controls.Add(this.btn);
-            this.Controls.Add(this.tb);
+            this.ClientSize = new System.Drawing.Size(1989, 1181);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.sBox);
+            this.Controls.Add(this.pBox);
             this.Controls.Add(this.grid);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -213,7 +230,6 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.partBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -232,11 +248,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView grid;
-        private System.Windows.Forms.BindingSource supplierBindingSource;
-        private System.Windows.Forms.BindingSource partBindingSource;
-        private System.Windows.Forms.BindingSource orderBindingSource;
-        private System.Windows.Forms.TextBox tb;
-        private System.Windows.Forms.Button btn;
-    }
+    private System.Windows.Forms.BindingSource supplierBindingSource;
+    private System.Windows.Forms.BindingSource partBindingSource;
+    private System.Windows.Forms.TextBox pBox;
+    private System.Windows.Forms.TextBox sBox;
+    private System.Windows.Forms.Label label5;
+    private System.Windows.Forms.Label label6;
+  }
 }
 
